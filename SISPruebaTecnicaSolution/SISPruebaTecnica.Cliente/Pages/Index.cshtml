@@ -1,0 +1,46 @@
+﻿@page
+@using SISPruebaTecnica.Entidades.Modelos;
+@model IndexModel
+@{
+    ViewData["Title"] = "Página de inicio";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Usuarios</title>
+</head>
+<body>
+    <form method="post">
+        <h4>Usuarios existentes</h4>
+        <hr />
+        <table cellpadding="20" cellspacing="20">
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha de nacimiento</th>
+                <th>Genero</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+            </tr>
+            @foreach (Usuarios usuario in Model.Usuarios)
+            {
+                <tr>
+                    <td>@usuario.Nombre_usuario</td>
+                    <td>@usuario.Fecha_nacimiento_vista</td>
+                    <td>@usuario.Genero</td>
+                    <td>@usuario.Estado_usuario</td>
+                    <td>
+                        @*<input id="btnShowCustomer" data-userNumber="@usuario.Id_usuario" />*@
+                      @*  <button class="btn btn-primary btn-md">@Html.ActionLink("Editar usuario", "/EditUsuario", new {id_usuario=@usuario.Id_usuario})</button>*@
+                        @*<button type="submit" class="btn btn-primary btn-md">Editar datos</button>*@
+                        <a asp-page="/EditarClientePage" asp-route-ID="@usuario.Id_usuario"
+                        class="btn btn-primary m-1">Editar usuario</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </form>
+</body>
+</html>

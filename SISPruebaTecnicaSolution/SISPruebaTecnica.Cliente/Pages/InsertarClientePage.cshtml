@@ -1,0 +1,43 @@
+﻿@page
+@model SISPruebaTecnica.Cliente.Pages.InsertarClientePageModel
+@{
+    ViewData["Title"] = "Insertar cliente";
+}
+<div class="container py-4">
+    <form id="datosForm" method="post">
+
+        <div class="mb-3">
+            <label class="form-label" for="txtnombreUsuarioid">Nombre</label>
+            <input class="form-control" name="txtnombreUsuario" id="txtnombreUsuarioid" type="text" placeholder="Nombre completo" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="name:required">El nombre es requerido.</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="txtfechaid">Fecha</label>
+            <input class="form-control" name="txtfecha" id="txtfechaid" type="date" placeholder="Fecha de nacimiento" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="listGeneroId">Genero</label>
+            <select name="listGenero" id="listGeneroId">
+                <option value="">Seleccione un género</option>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+            </select>
+        </div>
+
+        <div class="d-none" id="sucessMessage">
+            <div class="text-center mb-3">Usuario creado con éxito!</div>
+        </div>
+
+        <div class="d-none" id="errorMessage">
+            <div class="text-center text-danger mb-3">Error guardando el usuario!</div>
+        </div>
+
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg" onclick="">Guardar usuario</button>
+        </div>
+
+    </form>
+
+</div>

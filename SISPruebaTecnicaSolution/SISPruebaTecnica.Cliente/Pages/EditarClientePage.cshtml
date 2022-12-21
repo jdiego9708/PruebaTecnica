@@ -1,0 +1,74 @@
+﻿@page "{id:min(1)}"
+@model SISPruebaTecnica.Cliente.Pages.EditarClientePageModel
+@{
+    ViewData["Title"] = "Editar cliente";
+}
+<div class="container py-4">
+    <form id="datosForm" method="post" asp-page-handler="ActualizarUsuario">
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="Usuario.Id_usuario">Identificacion de usuario</label>
+            <input class="form-control" asp-for="Usuario.Id_usuario" name="txtidUsuario"
+                   id="txtidUsuarioid" type="text" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="Usuario.Nombre_usuario">Nombre</label>
+            <input class="form-control" asp-for="Usuario.Nombre_usuario" name="txtnombreUsuario"
+                   id="txtnombreUsuarioid" type="text" placeholder="Nombre completo" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="name:required">El nombre es requerido.</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="Usuario.Fecha_nacimiento" for="txtfechaid">Fecha</label>
+            <input class="form-control" asp-for="Usuario.Fecha_nacimiento" name="txtfecha"
+                   id="txtfechaid" type="date" placeholder="Fecha de nacimiento" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="Usuario.Genero" for="listGeneroId">Genero</label>
+            <select name="listGenero" id="listGeneroId">
+                <option value="">Seleccione un género</option>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+            </select>
+        </div>
+
+        <div class="d-none" id="sucessMessage">
+            <div class="text-center mb-3">Usuario creado con éxito!</div>
+        </div>
+
+        <div class="d-none" id="errorMessage">
+            <div class="text-center text-danger mb-3">Error guardando el usuario!</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Actualizar usuario</button>
+        @*        <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-lg">Actualizar usuario</button>
+        </div>*@
+
+        @*<div class="d-grid">
+        <button class="btn btn-primary btn-lg">Actualizar usuario</button>
+        </div>*@
+        @*
+        <button class="btn btn-primary btn-lg" onclick="OnPostActualizar()">Actualizar usuario</button>*@
+
+        <br />
+        @*
+        <button class="btn btn-danger btn-lg" onclick="OnPostEliminar()">Eliminar usuario</button>
+        *@
+        @*        <div class="d-grid">
+        <button class="btn btn-danger btn-lg">Eliminar usuario</button>
+        </div>*@
+    </form>
+    <form method="post" asp-page-handler="EliminarUsuario">
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="Usuario.Id_usuario">Identificacion de usuario</label>
+            <input class="form-control" asp-for="Usuario.Id_usuario" name="txtidUsuarioEliminar"
+                   id="txtidUsuarioidEliminar" type="text" readonly />
+        </div>
+
+        <button type="submit" class="btn btn-danger btn-lg">Eliminar usuario</button>
+    </form>
+</div>
